@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Satvik</title>
+    <script>
+        // Alert on any click
+        document.onclick = function () {
+            alert("DO dtomer");
+        };
+
+        // Bouncing marquee logic
+        function bounceMarquee(marquee, axis, min, max, step) {
+            let pos = min;
+            let direction = step;
+
+            setInterval(function () {
+                if (pos >= max || pos <= min) {
+                    direction = -direction;
+                }
+                pos += direction;
+
+                if (axis === "horizontal") {
+                    marquee.style.left = pos + "px";
+                } else if (axis === "vertical") {
+                    marquee.style.top = pos + "px";
+                }
+            }, 20); // adjust speed here
+        }
+
+        window.onload = function () {
+            let mover = document.getElementById("mover");
+            bounceMarquee(mover, "vertical", 0, window.innerHeight - 150, 2);
+            bounceMarquee(mover, "horizontal", 0, window.innerWidth - 300, 2);
+        };
+    </script>
+</head>
+<body style="margin:0; overflow:hidden; height:100vh; background:#f0f0f0;">
+
+    <div id="mover" style="
+        position: absolute;
+        width: 300px;
+        padding: 10px;
+        background: #e1f5fe;
+        border: 2px solid #039be5;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        text-align: center;
+        font-family: sans-serif;
+    ">
+        <details>
+            <summary style="cursor:pointer;">Vimal Daga</summary>
+            <p onclick="this.innerHTML = 'You clicked me!'">Sarcik</p>
+        </details>
+    </div>
+
+</body>
+</html>
